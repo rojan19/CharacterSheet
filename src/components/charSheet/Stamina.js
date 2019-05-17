@@ -2,7 +2,8 @@
  * Created by janda on 23.4.2019.
  */
 import React from 'react';
-import {CharacterConsumer, CharacterContext} from '../../providers/CharacterProvider'
+import {CharacterConsumer, CharacterContext} from '../../providers/CharacterProvider';
+import {Button} from "reactstrap";
 
 export default class Stamina extends React.Component {
     static contextType = CharacterContext;
@@ -10,11 +11,11 @@ export default class Stamina extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.context.raiseStamina} className="btn btn-info btn-block  btn-lg"> +1 </button>
+                <Button onClick={this.context.raiseStamina} color="info" block> +1 </Button>
                 <CharacterConsumer>
                     {({currStamina, maxStamina}) => <span className="text-center">Stamina: {currStamina} z {maxStamina}</span>}
                 </CharacterConsumer>
-                <button onClick={this.context.lowerStamina} className="btn btn-info btn-block btn-lg"> -1 </button>
+                <Button onClick={this.context.lowerStamina} color="info" block> -1 </Button>
             </div>
         )
     }

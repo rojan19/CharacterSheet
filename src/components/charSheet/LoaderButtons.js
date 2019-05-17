@@ -1,11 +1,12 @@
 /**
  * Created by janda on 26.4.2019.
  */
-import React from 'react';
-import {Redirect} from 'react-router-dom'
+import React from "react";
+import {Redirect} from "react-router-dom";
+import {Button} from "reactstrap";
 
-import CharacterDataService from '../../service/CharacterDataService';
-import {CharacterConsumer, CharacterContext} from '../../providers/CharacterProvider';
+import CharacterDataService from "../../service/CharacterDataService";
+import {CharacterContext} from "../../providers/CharacterProvider";
 
 export default class LoaderButtons extends React.Component {
     static contextType = CharacterContext;
@@ -58,13 +59,12 @@ const CharacterButtons = (props) => (
     <div className="row" >
         {Object.values(props.names).map( name => (
             <div className="m-1" key={name}>
-                 <button className="btn btn-info"
-                         onClick={() =>
+                 <Button color="info" onClick={() =>
                              props.getCharacter(Object.keys(props.names).find(key => props.names[key] === name))} key={name}>
                     {name}
-                 </button>
+                 </Button>
             </div>
         ))}
-        <button onClick={props.setRedirect} className="btn btn-info m-1">Upravit postavu</button>
+        <Button onClick={props.setRedirect} color="info" className="m-1">Upravit postavu</Button>
     </div>
 )

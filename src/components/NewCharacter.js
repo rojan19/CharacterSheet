@@ -7,7 +7,7 @@ export default class NewCharacter extends React.Component {
         return (
             <div>
                 <h1> Edit new character </h1>
-                <img src="/img/chars/party.jpg" width="100%" className="m-3"/>
+                <img src="/img/chars/party.jpg" width="100%" className="m-3" alt="create a new character"/>
             </div>
         )
     }

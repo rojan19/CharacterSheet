@@ -11,8 +11,10 @@ export default class MenuImages extends React.Component {
     render() {
         return (
             <div className="m-3">
-                    <img src="/img/chars/1.png" onClick={ () => this.context.getCharacter(1)} width="200px" className="mb-3"/>
-                    <img src="/img/chars/2.png" onClick={ () => this.context.getCharacter(2)} width="200px"/>
+                <img src="/img/chars/1.png" onClick={ () => this.context.getCharacter(1)} width="200px"
+                     className="m-1" alt="character"/>
+                <img src="/img/chars/2.png" onClick={ () => this.context.getCharacter(2)} width="200px"
+                     className="m-1" alt="character"/>
             </div>
 
         )

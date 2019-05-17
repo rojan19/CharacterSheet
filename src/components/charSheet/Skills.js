@@ -3,19 +3,42 @@
  */
 import React from 'react';
 import {CharacterConsumer} from '../../providers/CharacterProvider';
+import {Button, Collapse} from "reactstrap";
 
 export default class Skills extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            skillsCollapsed: false,
+            combatSkillsCollapsed: false,
+            knowledgeSkillsCollapsed: false
+        };
+    }
+
+    collapseSkills = () => {
+        this.setState(state => ({skillsCollapsed: !state.skillsCollapsed}));
+    }
+
+    collapseCombatSkills = () => {
+        this.setState(state => ({combatSkillsCollapsed: !state.combatSkillsCollapsed}));
+    }
+
+    collapseKnowledgeSkills = () => {
+        this.setState(state => ({knowledgeSkillsCollapsed: !state.knowledgeSkillsCollapsed}));
+    }
 
     render() {
         return (
-
             <CharacterConsumer>
                 {({skills, abilities}) => (
                     <div>
-                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#skills" aria-expanded="false" aria-controls="skills">
-                            Collapse the skills
-                        </button>
+                        <Button onClick={() => this.collapseSkills()} color="info" size="sm" aria-expanded="false" aria-controls="skills">
+                            Schopnosti
+                        </Button>
+                        <Collapse isOpen={this.state.skillsCollapsed}>
+
                         <div className="container text-center m-1 collapse.show" id="skills">
+
                             <div className="row border-bottom pb-1">
                                 <div className="col-4 text-left">Schopnost</div>
                                 <div className="col-1"><img src="../img/dice/yellow.png" width="20px" alt="yellow dice"/></div>
@@ -25,6 +48,8 @@ export default class Skills extends React.Component {
                             </div>
                             <SkillsList skills = {skills} abilities = {abilities} />
                         </div>
+                        </Collapse>
+
                     </div>
                 )}
             </CharacterConsumer>

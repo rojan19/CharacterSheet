@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import "./App.css";
-import {BrowserRouter as Router, Link, Redirect, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import NewCharacter from "./components/NewCharacter";
 import CharacterSheet from "./components/CharacterSheet";
-import EditCharacter from "./components/EditCharacter";
+import EditCharacter from "./components/EditSheet";
 import MenuImages from "./components/MenuImages";
 
 import CharacterProvider from "./providers/CharacterProvider";
